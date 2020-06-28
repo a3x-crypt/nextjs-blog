@@ -1,6 +1,7 @@
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Head from "next/head";
+import Link from "next/link";
 
 const name = "Andi";
 export const siteTitle = "Next.js Sample Website";
@@ -12,7 +13,7 @@ function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build personal website using Next.js"
+          content="Learn how to build a personal website using Next.js"
         />
         <meta
           property="og:image"
@@ -41,14 +42,14 @@ function Layout({ children, home }) {
                   src="/images/profile.jpg"
                   className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                   alt={name}
-                ></img>
+                />
               </a>
-              <h2 className={utilStyles.headingLg}>
-                <Link href="/">
-                  <a className={utilStyles.colorInherit}>{name}</a>
-                </Link>
-              </h2>
             </Link>
+            <h2 className={utilStyles.headingLg}>
+              <Link href="/">
+                <a className={utilStyles.colorInherit}>{name}</a>
+              </Link>
+            </h2>
           </>
         )}
       </header>
@@ -56,7 +57,7 @@ function Layout({ children, home }) {
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
-            <a>Back to home</a>
+            <a>← Back to home</a>
           </Link>
         </div>
       )}
